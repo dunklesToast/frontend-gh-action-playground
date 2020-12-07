@@ -25,6 +25,7 @@ beforeAll(async () => {
         "../Selenium.WebDriver.IEDriver.3.150.0/driver/"
       );
       process.env.PATH = `${process.env.PATH};${driverPath};`;
+      console.log(driverPath);
       capabilities = webdriver.Capabilities.ie();
       capabilities.set("ignoreProtectedModeSettings", true);
       capabilities.set("ignoreZoomSetting", true);
@@ -65,8 +66,8 @@ afterAll(async () => {
 });
 
 it("Google", async () => {
-  await page.loadUrl(`http://google.com`);
-  assert.equal(await page.title(), "Google");
+  await page.loadUrl(`http://f49b303cd53b.ngrok.io/`);
+  assert.equal(await page.title(), "Index of /");
 });
 
 it("Title is 'test'", async () => {
