@@ -60,6 +60,8 @@ jobs:
           key: IEDriver.3.150.0
       - if: matrix.browser == 'ie'
         uses: warrenbuckley/Setup-Nuget@v1
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - if: matrix.browser == 'ie' && steps.iedriver-cache.outputs.cache-hit != 'true'
         run: nuget install Selenium.WebDriver.IEDriver -Version 3.150.0
       # Run
