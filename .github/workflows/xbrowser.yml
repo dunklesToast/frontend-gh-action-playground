@@ -62,4 +62,4 @@ jobs:
 
       - if: steps.iedriver-cache.outputs.cache-hit != 'true'
         run: nuget install Selenium.WebDriver.IEDriver -Version 3.150.0
-      - run: yarn test:e2e:${{ matrix.browser }}
+      - run: yarn test:e2e:ie
