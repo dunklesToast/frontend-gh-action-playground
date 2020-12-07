@@ -62,10 +62,9 @@ jobs:
         uses: warrenbuckley/Setup-Nuget@v1
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      - run: tree
       - if: matrix.browser == 'ie' && steps.iedriver-cache.outputs.cache-hit != 'true'
         run: nuget install Selenium.WebDriver.IEDriver -Version 3.150.0
-      # Run
-      - run: yarn test:karma:${{ matrix.browser }}
       - run: yarn test:e2e:${{ matrix.browser }}
 
   # does not work: You must enable the 'Allow Remote Automation' option in Safari's Develop menu to control Safari via WebDriver
