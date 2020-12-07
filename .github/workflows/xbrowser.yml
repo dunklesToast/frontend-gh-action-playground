@@ -29,9 +29,6 @@ jobs:
   e2e-win-matrix:
     needs: [build]
     runs-on: windows-latest
-    strategy:
-      matrix:
-        browser: [ie]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -58,41 +55,11 @@ jobs:
         with:
           path: Selenium.WebDriver.IEDriver.3.150.0
           key: IEDriver.3.150.0
-      - if: matrix.browser == 'ie'
-        uses: warrenbuckley/Setup-Nuget@v1
+      - uses: warrenbuckley/Setup-Nuget@v1
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      - run: tree
-      - if: matrix.browser == 'ie' && steps.iedriver-cache.outputs.cache-hit != 'true'
+      - run: dir Selenium.WebDriver.IEDriver.3.150.0/driver
+
+      - if: steps.iedriver-cache.outputs.cache-hit != 'true'
         run: nuget install Selenium.WebDriver.IEDriver -Version 3.150.0
       - run: yarn test:e2e:${{ matrix.browser }}
-
-  # does not work: You must enable the 'Allow Remote Automation' option in Safari's Develop menu to control Safari via WebDriver
-  # e2e-safari:
-  #   runs-on: macos-latest
-  #   needs: [build]
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12
-  #     - uses: actions/cache@v1
-  #       with:
-  #         path: ~/.cache/yarn
-  #         key: xbrowser-mac-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
-  #         restore-keys: |
-  #           xbrowser-mac-yarn-
-  #     - uses: actions/cache@v1
-  #       with:
-  #         path: dist
-  #         key: dist-${GITHUB_SHA}
-  #         restore-keys: |
-  #           dist-${GITHUB_SHA}
-  #     - run: yarn install
-  #     - run: |
-  #         defaults write com.apple.Safari IncludeDevelopMenu YES
-  #         defaults write com.apple.Safari AllowRemoteAutomation 1
-  #         sudo safaridriver --enable
-  #         safaridriver -p 0 &
-  #     # - run: yarn test:karma:safari
-  #     - run: yarn test:e2e:safari

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bff5846-4e8a-4bbe-8304-e10e640a3798" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/xbrowser.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/xbrowser.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e/runWithSelenium.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/e2e/runWithSelenium.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +43,22 @@
       <option name="presentableId" value="Default" />
       <updated>1607359071052</updated>
       <workItem from="1607359072529" duration="1530000" />
-      <workItem from="1607360829389" duration="2183000" />
+      <workItem from="1607360829389" duration="3308000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
